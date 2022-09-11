@@ -1,4 +1,4 @@
-G_NAME="allow-all"
+SG_NAME="allow-all"
 ENV="dev"
 ZONE_ID="Z005396725ZQYS9AQ6CZX"
 #############################
