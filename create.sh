@@ -1,8 +1,11 @@
+#!/bin/bash
 
+##### Change these values ###
 ZONE_ID="Z005396725ZQYS9AQ6CZX"
 SG_NAME="allow-all"
 ENV="dev"
 #############################
+
 
 COMPONENT=all
 create_ec2() {
@@ -20,7 +23,7 @@ create_ec2() {
 }
 
 #AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
-AMI_ID=ami-0bb6af715826253bf
+AMI_ID=ami-07ef4d849950da0b3
 SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=${SG_NAME} | jq  '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
 
@@ -28,3 +31,5 @@ for component in catalogue cart user shipping payment frontend mongodb mysql rab
   COMPONENT="${component}-${ENV}"
   create_ec2
 done
+
+
