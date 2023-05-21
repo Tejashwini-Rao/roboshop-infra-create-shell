@@ -26,7 +26,7 @@ AMI_ID=ami-098f6204fb06a0d93
 SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=${SG_NAME} | jq  '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
 
-for component in mysql rabbitmq redis; do
+for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis; do
   COMPONENT="${component}-${ENV}"
   create_ec2
 done
